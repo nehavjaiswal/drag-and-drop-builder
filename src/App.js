@@ -9,12 +9,12 @@ function App() {
   const [canvasElements, setCanvasElements] = useState([]);
 
   const addElementToCanvas = (item) => {
-    setCanvasElements([
-      ...canvasElements,
-      { id: canvasElements.length, ...item },
+    setCanvasElements((prevCanvasElements) => [
+      ...prevCanvasElements,
+      { id: prevCanvasElements.length, ...item },
     ]);
   };
-  console.log(canvasElements, "canvasElements");
+  // console.log(canvasElements, "canvasElements");
 
   return (
     <DndProvider backend={HTML5Backend}>
