@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Sidebar from "./components/sidebar";
+import Canvas from "./components/canvas";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
+import "./App.css";
 
 function App() {
+  const [canvasElements, setCanvasElements] = useState([]);
+
+  const addElementToCanvas = (item) => {
+    setCanvasElements([
+      ...canvasElements,
+      { id: canvasElements.length, ...item },
+    ]);
+  };
+  console.log(canvasElements, "canvasElements");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DndProvider backend={HTML5Backend}>
+      <div className="App">
+        <h1 className="text-2xl font-bold text-center p-4">
+          Drag-and-Drop Website Builder
+        </h1>
+        <div className="flex flex-row justify-between h-screen p-4">
+          <Sidebar />
+          <Canvas elements={canvasElements} addElement={addElementToCanvas} />
+        </div>
+      </div>
+    </DndProvider>
   );
 }
 
