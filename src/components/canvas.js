@@ -11,7 +11,7 @@ const Canvas = ({ elements, addElement }) => {
   return (
     <div
       ref={drop}
-      className="w-3/4 h-full bg-white border-2 border-dashed border-gray-400 p-4 rounded-lg"
+      className="w-full md:w-3/4 h-full bg-white border-2 border-dashed border-gray-400 p-4 rounded-lg"
     >
       <h2 className="text-xl font-bold mb-4">Canvas</h2>
       {elements.map((element, index) => (

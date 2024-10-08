@@ -25,7 +25,7 @@ const SidebarItem = ({ item }) => {
 
 const Sidebar = () => {
   return (
-    <div className="w-1/4 bg-gray-100 p-4">
+    <div className="w-full md:w-1/4 bg-gray-100 p-4">
       <h2 className="text-xl font-bold mb-4">Elements</h2>
       {elements.map((item) => (
         <SidebarItem key={item.type} item={item} />

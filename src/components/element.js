@@ -8,7 +8,7 @@ const Element = ({ type, label }) => {
       );
     case "button":
       return (
-        <button className="p-2 bg-blue-500 text-white rounded-lg">
+        <button className="p-2 bg-blue-500 text-white rounded-lg mb-2">
           {label}
         </button>
       );
